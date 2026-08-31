@@ -34,6 +34,8 @@ pipeline{
 				docker compose up -d --remove-orphans
 				sleep 10
 				docker compose exec -T mysql mysql -u user -ppassword -e "
+						use dashboard;
+				 
                         CREATE TABLE IF NOT EXISTS users (
                             Roll_No INT,
                             Name VARCHAR(60),
