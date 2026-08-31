@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MySQL Dashboard</title>
+</head>
+<body>
+
+    <h1>MySQL Dashboard</h1>
+
+    <h2>Users</h2>
+
+    {% if users %}
+        {% for user in users %}
+            <p>
+                Roll No: {{ user.Roll_No }} |
+                Name: {{ user.Name }} |
+                Subjects: {{ user.Subjects }}
+            </p>
+        {% endfor %}
+    {% else %}
+        <p>No users found.</p>
+    {% endif %}
+
+</body>
+</html>
