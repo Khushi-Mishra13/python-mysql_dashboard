@@ -20,17 +20,17 @@ pipeline{
         }
 		stage('Stop running containers'){
 			steps{
-				sh'docker compose down'
+				sh'docker compose down --remove-orphans'
 				}
 			}
 		stage('To Build Docker Image'){
 			steps{
-				sh'docker compose build '
+				sh'docker compose build --no-cache'
 				}
 			}
 		stage('To Run The Image'){
 			steps{
-				sh'docker compose up -d'
+				sh'docker compose up -d --remove-orphans'
 					}
 				}
 			
