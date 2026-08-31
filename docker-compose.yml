@@ -2,7 +2,7 @@ services:
   web:
     build: .
     ports: 
-        - "4020:8080"
+        - "4022:8080"
     env_file: 
         - .env
     depends_on: 
