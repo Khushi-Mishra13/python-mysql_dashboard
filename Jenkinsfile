@@ -8,12 +8,12 @@ pipeline{
 			}
 		stage('To Build Docker Image'){
 			steps{
-				sh'docker build -t python-mysql-dashboard .'
+				sh'docker compose build '
 				}
 			}
 		stage('To Run The Image'){
 			steps{
-				sh'docker run -p 4008:8080 python-mysql-dashboard'
+				sh'docker compose up -d'
 					}
 				}
 			
