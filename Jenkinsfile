@@ -8,7 +8,7 @@ pipeline{
 			}
 		stage('To Build Docker Image'){
 			steps{
-				sh'docker build -t pyhton-mysql-dashboard'
+				sh'docker build -t python-mysql-dashboard .'
 				}
 			}
 		stage('To Run The Image'){
