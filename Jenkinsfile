@@ -18,7 +18,11 @@ pipeline{
                 	'''
             }
         }
-
+		stage('Stop running containers'){
+			steps{
+				sh'docker compose down'
+				}
+			}
 		stage('To Build Docker Image'){
 			steps{
 				sh'docker compose build '
