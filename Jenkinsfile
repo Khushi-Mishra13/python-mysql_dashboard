@@ -13,7 +13,7 @@ pipeline{
 			}
 		stage('To Run The Image'){
 			steps{
-				sh'docker run -p 4001:4001 python-mysql-dashboard'
+				sh'docker run -p 4001:8080 python-mysql-dashboard'
 					}
 				}
 			
