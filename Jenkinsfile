@@ -33,7 +33,7 @@ pipeline{
 				sh'''
 				docker compose up -d --remove-orphans
 				sleep 10
-				docker compose exec -T mysql mysql -u${MYSQL_USER} -p${MYSQL_PASSWORD} -e "
+				docker compose exec -T mysql mysql -u user -ppassword -e "
                         CREATE TABLE IF NOT EXISTS users (
                             Roll_No INT,
                             Name VARCHAR(60),
