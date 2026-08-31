@@ -30,7 +30,19 @@ pipeline{
 			}
 		stage('To Run The Image'){
 			steps{
-				sh'docker compose up -d --remove-orphans'
+				sh'''
+				docker compose up -d --remove-orphans
+				docker compose exec -T mysql mysql -u${MYSQL_USER} -p${MYSQL_PASSWORD} -e "
+                        CREATE TABLE IF NOT EXISTS users (
+                            Roll_No INT,
+                            Name VARCHAR(60),
+                            Subjects VARCHAR(50)
+                        );
+
+                        INSERT INTO users (Roll_No, Name, Subjects)
+                        VALUES (4, 'thy', 'c++');
+                    "
+				'''
 					}
 				}
 			
