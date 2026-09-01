@@ -33,18 +33,7 @@ pipeline{
 				sh'''
 				docker compose up -d --remove-orphans
 				sleep 10
-				docker compose exec -T mysql mysql -u user -ppassword -e "
-						use dashboard;
-				 
-                        CREATE TABLE IF NOT EXISTS users (
-                            Roll_No INT,
-                            Name VARCHAR(60),
-                            Subjects VARCHAR(50)
-                        );
-
-                        INSERT INTO users (Roll_No, Name, Subjects)
-                        VALUES (4, 'thy', 'c++');
-                    "
+				
 				'''
 					}
 				}
