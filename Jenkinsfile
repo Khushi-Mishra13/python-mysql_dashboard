@@ -32,7 +32,7 @@ pipeline{
 			steps{
 				sh'''
 				docker compose up -d --remove-orphans
-				sleep 10
+				
 				
 				'''
 					}
