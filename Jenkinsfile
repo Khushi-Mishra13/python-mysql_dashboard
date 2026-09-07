@@ -15,7 +15,7 @@ pipeline{
 								MYSQL_PASSWORD=password
 								MYSQL_DATABASE=dashboard
 								EOF
-                		'''
+                				'''
             }
         }
 		stage('Stop running containers'){
@@ -60,14 +60,14 @@ pipeline{
 			                    passwordVariable: 'password'
 			                )
 			            ]) {
-							sh '''
+							    sh '''
 									ssh -o StrictHostKeyChecking=no -p 5125 khushi@192.168.7.102 << EOF
 									echo "$password" | docker login ghcr.io -u "$username" --password-stdin
 
 									docker pull ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
 									docker run -d  -p 8082:5000 ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
 
-							EOF
+							    EOF
 								'''
 						  }
 			     }
