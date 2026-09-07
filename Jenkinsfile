@@ -25,18 +25,52 @@ pipeline{
 			}
 		stage('To Build Docker Image'){
 			steps{
-				sh'docker compose build --no-cache'
+				sh'docker build -t ghcr.io/khushi-mishra13/python-mysql_dashboard:latest .'
 				}
 			}
-		stage('To Run The Image'){
+		stage('push it to ghcr'){
 			steps{
-				sh'''
-				docker compose up -d --remove-orphans
+				withCredentials([
+					usernamePassword(
+						credentialId: 'github-token-id',
+						usernameVariable: 'username',
+						passwordVariable: 'password'
+					)
+				]){
+					sh ''''
+					echo "$password" | docker login ghcr.io -u "$username" --password-stdin
+					docker push ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
+					'''
+				}
 				
 				
-				'''
+				
 					}
 				}
-			
+
+		stage('deploy on vm'){
+			steps{
+				sshagent(credentials: ['khushi-vm']) {
+			            withCredentials([
+			                usernamePassword(
+			                    credentialsId: 'github-token-id',
+			                    usernameVariable: 'username',
+			                    passwordVariable: 'password'
+			                )
+			            ]) {
+							sh '''
+									ssh -o StrictHostKeyChecking=no -p 5125 khushi@192.168.7.102 << EOF
+									echo "$password" | docker login ghcr.io -u "$username" --password-stdin
+
+									docker pull ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
+									docker run -d  -p 8081:5000 ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
+
+								
+								'''
+						  }
+			     }
+		    }
 		}
+}
+
 }
