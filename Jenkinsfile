@@ -40,7 +40,7 @@ pipeline {
           )
         ]) {
           sh '''
-          echo "$password" | docker login ghcr.io -u "$username" --password -stdin
+          echo "$password" | docker login ghcr.io -u "$username" --password-stdin
           docker push ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
           '''
         }
@@ -60,7 +60,7 @@ pipeline {
           ]) {
             sh '''
             ssh - o StrictHostKeyChecking = no - p 5125 khushi @192 .168 .7 .102 << EOF
-            echo "$password" | docker login ghcr.io -u "$username" --password -stdin
+            echo "$password" | docker login ghcr.io -u "$username" --password-stdin
 
             cd~/dashboard &&
             docker compose down &&
