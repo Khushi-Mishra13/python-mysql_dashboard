@@ -45,8 +45,8 @@ pipeline{
 				
 				
 				
-					}
-				}
+			}
+		}
 
 		stage('deploy on vm'){
 			steps{
@@ -70,7 +70,7 @@ pipeline{
 						  }
 			     }
 		    }
-		}
-}
+		}	
+	}
 
 }
