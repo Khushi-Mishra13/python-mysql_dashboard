@@ -59,7 +59,7 @@ pipeline {
             )
           ]) {
             sh '''
-            ssh - o StrictHostKeyChecking=no -p 5125 khushi@192.168.7.102 << EOF
+            ssh -o StrictHostKeyChecking=no -p 5125 khushi@192.168.7.102 << EOF
             echo "$password" | docker login ghcr.io -u "$username" --password-stdin
 
             cd~/dashboard &&
