@@ -67,8 +67,8 @@ EOF
 									cd ~/dashboard &&
                     				docker compose pull &&
                     				docker compose up -d --remove-orphans
-									//docker pull ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
-									//docker run -d  -p 8082:5000 ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
+									#docker pull ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
+									#docker run -d  -p 8082:5000 ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
 EOF
 								'''
 						  }
