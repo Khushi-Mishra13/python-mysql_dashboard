@@ -63,7 +63,7 @@ pipeline{
 									echo "$password" | docker login ghcr.io -u "$username" --password-stdin
 
 									docker pull ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
-									docker run -d  -p 8081:5000 ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
+									docker run -d  -p 8082:5000 ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
 
 								
 								'''
