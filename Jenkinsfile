@@ -37,7 +37,7 @@ pipeline{
 						passwordVariable: 'password'
 					)
 				]){
-					sh ''''
+					sh '''
 					echo "$password" | docker login ghcr.io -u "$username" --password-stdin
 					docker push ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
 					'''
