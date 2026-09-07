@@ -10,12 +10,12 @@ pipeline{
                         steps {
                                 sh '''
                                 cat > .env <<EOF
-				MYSQL_HOST=mysql
-				MYSQL_USER=user
-				MYSQL_PASSWORD=password
-				MYSQL_DATABASE=dashboard
-				EOF
-                	'''
+								MYSQL_HOST=mysql
+								MYSQL_USER=user
+								MYSQL_PASSWORD=password
+								MYSQL_DATABASE=dashboard
+								EOF
+                		'''
             }
         }
 		stage('Stop running containers'){
@@ -67,7 +67,7 @@ pipeline{
 									docker pull ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
 									docker run -d  -p 8082:5000 ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
 
-									EOF
+							EOF
 								'''
 						  }
 			     }
