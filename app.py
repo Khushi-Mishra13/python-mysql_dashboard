@@ -13,7 +13,8 @@ def get_db ():
 
 @app.after_request
 def add_security_headers(response):
-	response.headers["Server"] = ""
+    response.headers["Server"] = ""
+	
     response.headers["Content-Security-Policy"] = (
         "default-src 'self';"
         "script-src 'self';"
