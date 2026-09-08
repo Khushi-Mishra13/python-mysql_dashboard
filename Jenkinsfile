@@ -26,8 +26,8 @@ EOF
     stage('Trivy Scan Image') {
       steps {
          sh '''
-         #trivy image --severity HIGH,CRITICAL ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
-          trivy image ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
+          trivy image --severity HIGH,CRITICAL ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
+          #trivy image ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
        '''
       }
     }
