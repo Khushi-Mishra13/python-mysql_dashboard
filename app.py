@@ -17,11 +17,17 @@ def add_security_headers(response):
         "default-src 'self'; "
         "script-src 'self'; "
         "style-src 'self'; "
-        "img-src 'self' data:; "
+        "img-src 'self'; "
         "font-src 'self'; "
+        "connect-src 'self'; "
+        "media-src 'self'; "
         "object-src 'none'; "
+        "frame-src 'none'; "
+        "worker-src 'self'; "
+        "manifest-src 'self'; "
         "frame-ancestors 'none'; "
-        "base-uri 'self';"
+        "base-uri 'self'; "
+        "form-action 'self';"
     )
     return response
 @app.route("/")
