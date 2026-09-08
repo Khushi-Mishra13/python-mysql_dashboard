@@ -11,7 +11,7 @@ def get_db ():
 			database = os.getenv("MYSQL_DATABASE", "dashboard")
 			)
 
-@app.after_request()
+@app.after_request
 def add_security_headers(response):
 	response.headers["Content-Security-Policy"] = (
         "default-src 'self'; "
@@ -23,7 +23,7 @@ def add_security_headers(response):
         "frame-ancestors 'none'; "
         "base-uri 'self';"
     )
-    	return response
+    return response
 @app.route("/")
 def home ():
 	
