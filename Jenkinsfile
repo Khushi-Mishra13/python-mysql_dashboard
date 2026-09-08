@@ -27,6 +27,9 @@ EOF
       steps {
          sh '''
           trivy image --severity HIGH,CRITICAL --format json --output trivy-result.json ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
+          echo "===== Trivy report ====="
+            pwd
+            ls -lh trivy-result.json
           #trivy image ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
        '''
       }
