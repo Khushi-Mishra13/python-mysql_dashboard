@@ -23,7 +23,7 @@ def add_security_headers(response):
         "frame-ancestors 'none'; "
         "base-uri 'self';"
     )
-    return response
+    	return response
 @app.route("/")
 def home ():
 	
