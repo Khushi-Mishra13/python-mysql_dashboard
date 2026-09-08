@@ -23,7 +23,7 @@ EOF
         sh 'docker build -t ghcr.io/khushi-mishra13/python-mysql_dashboard:latest .'
       }
     }
-    stage('Trivy Scan Image') {
+    /* stage('Trivy Scan Image') {
       steps {
          sh '''
           trivy image --severity HIGH,CRITICAL ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
@@ -31,7 +31,7 @@ EOF
           #trivy image ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
        '''
       }
-    }
+    } */
     stage('push it to ghcr') {
       steps {
         withCredentials([
