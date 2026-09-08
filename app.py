@@ -14,6 +14,8 @@ def get_db ():
 @app.after_request
 def add_security_headers(response):
     response.headers["Server"] = ""
+    response.headers["X-Content-Type-Options"] = "nosniff"
+
 	
     response.headers["Content-Security-Policy"] = (
         "default-src 'self';"
