@@ -50,8 +50,8 @@ EOF
       }
     }
 
-    stage('deploy on vm') {
-      steps {
+    stage('deploy locally') {
+      /*steps {
         sshagent(credentials: ['khushi-vm']) {
           withCredentials([
             usernamePassword(
@@ -71,7 +71,14 @@ EOF
             #docker pull ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
             #docker run -d -p 8082:5000 ghcr.io/khushi-mishra13/python-mysql_dashboard:latest
 EOF
-              '''
+              ''' */
+        steps{
+            sh '''
+              docker compose down
+              docker compose up -d --build --remove-orphans
+        '''
+
+        }
           }
         }
       }
