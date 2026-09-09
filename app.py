@@ -1,4 +1,4 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,request
 import mysql.connector
 import os
 app = Flask(__name__)
@@ -45,6 +45,23 @@ def home ():
 	db.close()
 
 	return render_template("index.html", users=users)
+@app.route("/search")
+def search():
+    username = request.args.get("username", "")
+
+    db = get_db()
+    cursor = db.cursor(dictionary=True)
+
+    query = "SELECT * FROM users WHERE username = '" + username + "'"
+    cursor.execute(query)
+
+    users = cursor.fetchall()
+
+    cursor.close()
+    db.close()
+
+    return render_template("index.html", users=users)
+
 if __name__ == "__main__":
 	app.run(host="0.0.0.0" , port= 5000)
 
