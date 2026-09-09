@@ -11,7 +11,7 @@ def get_db ():
 			database = os.getenv("MYSQL_DATABASE", "dashboard")
 			)
 
-'''@app.after_request
+@app.after_request
 def add_security_headers(response):
     response.headers["Server"] = ""
     response.headers["X-Content-Type-Options"] = "nosniff"
@@ -19,7 +19,7 @@ def add_security_headers(response):
 	
     response.headers["Content-Security-Policy"] = (
         "default-src 'self';"
-        #"script-src 'self';"
+        "script-src 'self';"
         "style-src 'self';"
         "img-src 'self';"
         "font-src 'self';"
@@ -33,7 +33,7 @@ def add_security_headers(response):
         "base-uri 'self'; "
         "form-action 'self';"
     )
-    return response '''
+    return response 
 @app.route("/")
 def home ():
 	
