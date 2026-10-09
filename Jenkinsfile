@@ -26,16 +26,8 @@ pipeline{
 						]
 					]
 				){
-					sh '''
-						cat > .env <<EOF
-MYSQL_HOST=$MYSQL_HOST
-MYSQL_USER=$MYSQL_USER
-MYSQL_PASSWORD=$MYSQL_PASSWORD
-MYSQL_DATABASE=$MYSQL_DATABASE
-MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
-EOF
-					'''
-				}
+				
+				
 			}
 		}
 		stage('Stop running containers'){
