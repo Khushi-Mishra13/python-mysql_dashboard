@@ -27,7 +27,7 @@ pipeline{
 					]
 				){
 				
-				
+				}				
 			}
 		}
 		stage('Stop running containers'){
