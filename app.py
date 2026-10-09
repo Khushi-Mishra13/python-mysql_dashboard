@@ -5,10 +5,10 @@ app = Flask(__name__)
 
 def get_db ():
 	return mysql.connector.connect(
-			host = os.getenv("MYSQL_HOST", "mysql"),
-			user = os.getenv("MYSQL_USER", "user"),
-			password = os.getenv("MYSQL_PASSWORD", "password"),
-			database = os.getenv("MYSQL_DATABASE", "dashboard")
+			host = os.environ["MYSQL_HOST"],
+			user = os.environ["MYSQL_USER"],
+			password = os.environ["MYSQL_PASSWORD"],
+			database = os.environ["MYSQL_DATABASE"]
 			)
 
 @app.after_request
