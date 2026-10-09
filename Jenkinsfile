@@ -15,7 +15,7 @@ pipeline{
 					],
 					vaultSecrets: [
 						[
-							path: 'secret/data/python-dashboard',
+							path: 'secret/python-dashboard',
 							secretValues: [
 								[envVar: 'MYSQL_HOST', vaultKey: 'MYSQL_HOST'],
 								[envVar: 'MYSQL_USER', vaultKey: 'MYSQL_USER'],
