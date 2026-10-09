@@ -20,7 +20,7 @@ pipeline{
 								[envVar: 'MYSQL_HOST', vaultKey: 'MYSQL_HOST'],
 								[envVar: 'MYSQL_USER', vaultKey: 'MYSQL_USER'],
 								[envVar: 'MYSQL_PASSWORD', vaultKey: 'MYSQL_PASSWORD'],
-								[envVar: 'MYSQL_DATABASE', vaultKey: 'MYSQL_DATABASE']
+								[envVar: 'MYSQL_DATABASE', vaultKey: 'MYSQL_DATABASE'],
 								[envVar: 'MYSQL_ROOT_PASSWORD', vaultKey: 'MYSQL_ROOT_PASSWORD']
 							]
 						]
