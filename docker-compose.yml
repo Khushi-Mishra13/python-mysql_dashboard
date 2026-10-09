@@ -3,7 +3,7 @@ services:
     build: .
     ports: 
         - "8082:5000"
-    envvironment:
+    environment:
       MYSQL_HOST: ${MYSQL_HOST}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
