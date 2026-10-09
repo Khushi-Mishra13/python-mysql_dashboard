@@ -11,7 +11,7 @@ pipeline{
 				withVault(
 					configuration: [
 						vaultUrl: 'http://localhost:8200',
-						vaultCredentialId: 'vault-python-dashboard-token'
+						vaultCredentialId: 'vault-python-dashboard'
 					],
 					vaultSecrets: [
 						[
